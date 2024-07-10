@@ -51,6 +51,13 @@ server.use('/other', mobiledataRouter);
 server.use('/mac', mobiledataRouter);
 server.use('/sim', mobiledataRouter);
 
+
+// Root route handler
+server.get("/", (req, res) => {
+  res.send("Welcome to the Settings App API");
+});
+
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
