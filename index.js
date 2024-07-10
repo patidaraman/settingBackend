@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -32,42 +32,42 @@ server.use("/boldtext", router);
 server.use("/scheduled", router);
 server.use("/manually", router);
 server.use("/airplanemode", airplaneRouter);
-server.use('/vibratering', shRouter);
-server.use('/vibratesilent', shRouter);
-server.use('/changebutton', shRouter);
-server.use('/keyboard', shRouter);
-server.use('/locksound', shRouter);
-server.use('/system', shRouter);
-server.use('/autolock', router);
-server.use('/dataroaming', mobiledataRouter);
-server.use('/lowdata', mobiledataRouter);
-server.use('/IP', mobiledataRouter);
-server.use('/textsize', router);
-server.use('/autojoin', wifiRouter);
-server.use('/network', mobiledataRouter);
-server.use('/volte', mobiledataRouter);
-server.use('/calling', mobiledataRouter);
-server.use('/other', mobiledataRouter);
-server.use('/mac', mobiledataRouter);
-server.use('/sim', mobiledataRouter);
-
+server.use("/vibratering", shRouter);
+server.use("/vibratesilent", shRouter);
+server.use("/changebutton", shRouter);
+server.use("/keyboard", shRouter);
+server.use("/locksound", shRouter);
+server.use("/system", shRouter);
+server.use("/autolock", router);
+server.use("/dataroaming", mobiledataRouter);
+server.use("/lowdata", mobiledataRouter);
+server.use("/IP", mobiledataRouter);
+server.use("/textsize", router);
+server.use("/autojoin", wifiRouter);
+server.use("/network", mobiledataRouter);
+server.use("/volte", mobiledataRouter);
+server.use("/calling", mobiledataRouter);
+server.use("/other", mobiledataRouter);
+server.use("/mac", mobiledataRouter);
+server.use("/sim", mobiledataRouter);
 
 // Root route handler
 server.get("/", (req, res) => {
   res.send("Welcome to the Settings App API");
 });
 
-
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => {
+mongoose
+  .connect(
+    "mongodb+srv://amanpatidar0681:InfYjJM2ijRkGJMa@cluster0.qnndebv.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => {
     server.listen(port, () => {
-        console.log(`Server Started on port no ${port}`);
+      console.log(`Server Started on port no ${port}`);
     });
-})
-.catch((error) => {
-    console.log(error);
-});
+  })
+  .catch((err) => console.log(err));
