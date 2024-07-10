@@ -14,7 +14,7 @@ const airplaneRouter = require("./Routes/AirplaneModeRoute");
 const shRouter = require("./Routes/SoundRoutes");
 
 const server = express();
-const port = process.env.PORT || 8001;
+const port = process.env.PORT || 8002;
 
 server.use(cors());
 server.use(bodyParser.json());
