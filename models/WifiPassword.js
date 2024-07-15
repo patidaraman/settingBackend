@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
 
-
 const PasswordSchema = new mongoose.Schema({
-  password: Number,
-  active: Boolean,
-});
+  password: {
+    type: String,
+    required: true
+  },
+  active: {
+    type: Boolean,
+    default: true
+  },
+}, { collection: 'WiFiPasswords' });
 
- const WiFiPassword= mongoose.model("Password ", PasswordSchema, "Wi-Fi Password");
- module.exports =WiFiPassword
+const WiFiPassword = mongoose.model('WiFiPassword', PasswordSchema);
+module.exports = WiFiPassword;
