@@ -28,10 +28,9 @@ const MobileDataSchema = new mongoose.Schema({
   },
   isCallingWiFiOn: {
     type: Boolean,
-    DataTransfer: false,
+    default: false, // Fixed typo here
   },
-
-  isAllowCallsonOtherDevicesOn: {
+  isAllowCallsOnOtherDevicesOn: {
     type: Boolean,
     default: false,
   },
@@ -39,12 +38,13 @@ const MobileDataSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  isSimPinOn:{
+  isSimPinOn: {
     type: Boolean,
     default: false,
   },
   selectedNetwork: {
     type: String,
+    default: "", // Added default value for consistency
   },
 });
 
